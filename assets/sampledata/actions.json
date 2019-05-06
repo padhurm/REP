@@ -1,0 +1,62 @@
+[
+    {
+      "TimeStamp": "5/1/19 12:00 AM",
+      "ActionDescription": "Scoping Action 1"
+    },
+    {
+      "TimeStamp": "5/2/19 12:00 AM",
+      "ActionDescription": "Scoping Action 2"
+    },
+    {
+      "TimeStamp": "5/3/19 12:00 AM",
+      "ActionDescription": "Scoping Action 3"
+    },
+    {
+      "TimeStamp": "5/4/19 12:00 AM",
+      "ActionDescription": "Scoping Action 4"
+    },
+    {
+      "TimeStamp": "5/5/19 12:00 AM",
+      "ActionDescription": "Scoping Action 5"
+    },
+    {
+      "TimeStamp": "5/6/19 12:00 AM",
+      "ActionDescription": "Scanning Action 1"
+    },
+    {
+      "TimeStamp": "5/7/19 12:00 AM",
+      "ActionDescription": "Scanning Action 2"
+    },
+    {
+      "TimeStamp": "5/8/19 12:00 AM",
+      "ActionDescription": "Scanning Action 3"
+    },
+    {
+      "TimeStamp": "5/9/19 12:00 AM",
+      "ActionDescription": "Scanning Action 4"
+    },
+    {
+      "TimeStamp": "5/10/19 12:00 AM",
+      "ActionDescription": "Scanning Action 5"
+    },
+    {
+      "TimeStamp": "5/11/19 12:00 AM",
+      "ActionDescription": "Phasing Action 1"
+    },
+    {
+      "TimeStamp": "5/12/19 12:00 AM",
+      "ActionDescription": "Phasing Action 2"
+    },
+    {
+      "TimeStamp": "5/13/19 12:00 AM",
+      "ActionDescription": "Phasing Action 3"
+    },
+    {
+      "TimeStamp": "5/14/19 12:00 AM",
+      "ActionDescription": "Phasing Action 4"
+    },
+    {
+      "TimeStamp": "5/15/19 12:00 AM",
+      "ActionDescription": "Phasing Action 5"
+    }
+   ]
