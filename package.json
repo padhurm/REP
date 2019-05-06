@@ -13,8 +13,9 @@
     "react-native-text-ticker": "^0.15.0"
   },
   "devDependencies": {
-    "@babel/core": "7.4.3",
-    "@babel/runtime": "^7.4.3",
+    "@babel/cli": "^7.4.4",
+    "@babel/core": "^7.4.3",
+    "@babel/runtime": "^7.4.4",
     "babel-jest": "24.7.1",
     "jest": "24.7.1",
     "metro-react-native-babel-preset": "0.53.1",

@@ -1,62 +1,62 @@
 [
     {
       "TimeStamp": "5/1/19 12:00 AM",
-      "ApprovalDescription": "Scoping Approval 1"
+      "Description": "Scoping Approval 1"
     },
     {
       "TimeStamp": "5/2/19 12:00 AM",
-      "ApprovalDescription": "Scoping Approval 2"
+      "Description": "Scoping Approval 2"
     },
     {
       "TimeStamp": "5/3/19 12:00 AM",
-      "ApprovalDescription": "Scoping Approval 3"
+      "Description": "Scoping Approval 3"
     },
     {
       "TimeStamp": "5/4/19 12:00 AM",
-      "ApprovalDescription": "Scoping Approval 4"
+      "Description": "Scoping Approval 4"
     },
     {
       "TimeStamp": "5/5/19 12:00 AM",
-      "ApprovalDescription": "Scoping Approval 5"
+      "Description": "Scoping Approval 5"
     },
     {
       "TimeStamp": "5/6/19 12:00 AM",
-      "ApprovalDescription": "Scanning Approval 1"
+      "Description": "Scanning Approval 1"
     },
     {
       "TimeStamp": "5/7/19 12:00 AM",
-      "ApprovalDescription": "Scanning Approval 2"
+      "Description": "Scanning Approval 2"
     },
     {
       "TimeStamp": "5/8/19 12:00 AM",
-      "ApprovalDescription": "Scanning Approval 3"
+      "Description": "Scanning Approval 3"
     },
     {
       "TimeStamp": "5/9/19 12:00 AM",
-      "ApprovalDescription": "Scanning Approval 4"
+      "Description": "Scanning Approval 4"
     },
     {
       "TimeStamp": "5/10/19 12:00 AM",
-      "ApprovalDescription": "Scanning Approval 5"
+      "Description": "Scanning Approval 5"
     },
     {
       "TimeStamp": "5/11/19 12:00 AM",
-      "ApprovalDescription": "Phasing Approval 1"
+      "Description": "Phasing Approval 1"
     },
     {
       "TimeStamp": "5/12/19 12:00 AM",
-      "ApprovalDescription": "Phasing Approval 2"
+      "Description": "Phasing Approval 2"
     },
     {
       "TimeStamp": "5/13/19 12:00 AM",
-      "ApprovalDescription": "Phasing Approval 3"
+      "Description": "Phasing Approval 3"
     },
     {
       "TimeStamp": "5/14/19 12:00 AM",
-      "ApprovalDescription": "Phasing Approval 4"
+      "Description": "Phasing Approval 4"
     },
     {
       "TimeStamp": "5/15/19 12:00 AM",
-      "ApprovalDescription": "Phasing Approval 5"
+      "Description": "Phasing Approval 5"
     }
    ]

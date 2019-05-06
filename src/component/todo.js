@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { Text, Card, CardItem, Tab, Tabs, TabHeading, Button, ScrollableTab } from 'native-base';
 import { View, Image, StyleSheet } from 'react-native';
 import TwoColumnTable from './twoColumTable';
-// import actionData from '../../assets/sampledata/actions.json';
-// import approvalData from '../../assets/sampledata/approval.json';
+
 
 export default class ToDo extends Component {
     constructor(props) {
@@ -23,20 +22,22 @@ export default class ToDo extends Component {
             this.setState({
                 key: buttonValue,
                 actionButtonActive: actionButton,
-                approvalButtonActive: approvalButton
+                approvalButtonActive: approvalButton,
+                toDoContentSize: 3
             });
         }
     }
 
-    _onPressActions(){
+    _contentToDisplay() {
         let actionData = require('../../assets/sampledata/actions.json')
-        console.log("action data: ", actionData);        
+        let approvalData = require('../../assets/sampledata/approvals.json')
+        return this.state.actionButtonActive ? this._itemChosen(actionData) : this._itemChosen(approvalData);
     }
 
-    _onPressApprovals(){
-        let approvalData = require('../../assets/sampledata/approvals.json')
-        console.log("approvals data: ", approvalData);
-
+    _itemChosen(data) {
+        return data.slice(0, this.state.toDoContentSize).map((d, i) => {
+            return <TwoColumnTable column1={d.TimeStamp} column2={d.Description} key={i} />
+        })
     }
 
     render() {
@@ -64,19 +65,10 @@ export default class ToDo extends Component {
                         <Text style={styles.buttonTextStyle}>APPROVALS</Text>
                     </Button>
                 </View>
-                {/* <CardItem> */}
-                    {/* <Text>{this.state.actionButtonActive ? "active" : "approvals"}</Text> */}
-                    {this._onPressActions()}
-                    {this._onPressApprovals()}
-                    <TwoColumnTable/>
-                    <TwoColumnTable/>
-                    <TwoColumnTable/>
-                    {/* {this.dataRetrival()} */}
-                {/* </CardItem> */}
-
+                {this._contentToDisplay()}
                 <CardItem footer>
-                    <Button transparent style={styles.buttonStyle}>
-                        <Text style={styles.buttonTextStyle}>SEE ALL ACTIONS</Text>
+                    <Button transparent style={styles.buttonStyle} onPress={() => this.setState({ toDoContentSize: 100 })}>
+                        <Text style={styles.buttonTextStyle}>SEE ALL</Text>
                     </Button>
                 </CardItem>
             </Card>
