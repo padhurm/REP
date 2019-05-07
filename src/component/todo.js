@@ -3,6 +3,8 @@ import { Text, Card, CardItem, Tab, Tabs, TabHeading, Button, ScrollableTab } fr
 import { View, Image, StyleSheet } from 'react-native';
 import TwoColumnTable from './twoColumTable';
 
+const actionData = require('../../assets/sampledata/actions.json')
+const approvalData = require('../../assets/sampledata/approvals.json')
 
 export default class ToDo extends Component {
     constructor(props) {
@@ -29,8 +31,6 @@ export default class ToDo extends Component {
     }
 
     _contentToDisplay() {
-        let actionData = require('../../assets/sampledata/actions.json')
-        let approvalData = require('../../assets/sampledata/approvals.json')
         return this.state.actionButtonActive ? this._itemChosen(actionData) : this._itemChosen(approvalData);
     }
 
