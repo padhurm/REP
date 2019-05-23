@@ -1,12 +1,26 @@
 import React, { Component } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { StyleSheet, View, Button, TouchableOpacity } from 'react-native';
+// import console = require('console');
+// import Scoping from '../Pages/scoping';
+
 
 export default class AppsIcon extends Component{
-    render(){        
+    constructor(props){
+        super(props)
+    }
+
+    _display =()=>{
+        console.log("this.props:", this.props.navigator);
+    }
+    render(){    
+                     
         return(
-            <View style={styles.iconContainer}>
+            <TouchableOpacity style={styles.iconContainer} 
+                onPress={() => 
+                this.props.navigator.push('Scoping')}
+                >
                 {this.props.children}
-            </View>
+            </TouchableOpacity>
         )
     }
 }

@@ -4,15 +4,16 @@ import { View, Image, StyleSheet } from 'react-native';
 import HeaderBar from '../component/headerBar';
 import CustomFooter from '../component/customFooter';
 import Marquee from '../component/common/marquee';
-import AppsPallette from '../component/apps-pallette';
+import AppsPallette from '../component/appsPallette';
 import lang from '../../assets/util/lang';
 import TodoCard from '../component/todo';
 
 export default class LandingPage extends Component {
+         
     render() {
         return (
             <Container>
-                <HeaderBar />
+                
                 {lang.MARQUE_TEXT.length > 0 &&
                     <Marquee>{lang.MARQUE_TEXT}</Marquee>
                 }
@@ -21,7 +22,7 @@ export default class LandingPage extends Component {
                         <CardItem header>
                             <Text style={styles.headingStyle}>Apps</Text>
                         </CardItem>
-                        <AppsPallette />
+                        <AppsPallette navigator={this.props.navigation}/>
                     </Card>
                     <CardItem header>
                         <Text style={styles.headingStyle}>To Do</Text>

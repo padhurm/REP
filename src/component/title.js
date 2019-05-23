@@ -4,7 +4,7 @@ import { StyleSheet, Image, Text, View } from 'react-native';
 export default class headerTitle extends Component {
     render() {
         return (
-            <View style={{ flex: 1, marginBottom: 10 }}>
+            <View style={{justifyContent:'flex-start', alignItems:'flex-start' }}>
                 {/* <Text style={{marginBottom: 10}}> */}
                     <Text style={styles.titleStyle}>Realty</Text>
                     <Text style={styles.titleStyle}>Execution</Text>
