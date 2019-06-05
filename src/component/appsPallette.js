@@ -1,15 +1,16 @@
 import React, { Component } from 'react';
 import { StyleSheet, View, Image, TouchableOpacity } from 'react-native';
+import { withNavigation } from 'react-navigation';
 import { Text } from 'native-base';
 import imageSource from '../utils/iconData';
 
-export default class IconPallette extends Component {
+class IconPallette extends Component {
     iconTray = (d) => {
         if (d.length > 0) {
             return d.map((data, i) => {
                 return (
                     <TouchableOpacity style={styles.iconContainer}
-                        onPress={() => this.props.navigator.push(data.key)}
+                        onPress={() => this.props.navigation.navigate(data.key)}
                         key={i}>
                         <Image source={data.image_name} />
                         <Text style={styles.iconText}>{data.title}</Text>
@@ -27,6 +28,8 @@ export default class IconPallette extends Component {
         )
     }
 }
+
+
 
 const styles = StyleSheet.create({
     palleteStyle: {
@@ -56,3 +59,4 @@ const styles = StyleSheet.create({
     }
 })
 
+export default withNavigation(IconPallette);

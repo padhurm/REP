@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Footer, Text, Card, CardItem, Tab, Tabs, TabHeading, Button } from 'native-base';
+import { Container, Content, Footer, Text, Card, CardItem, Tab, Tabs, TabHeading, Button, Icon } from 'native-base';
 import { View, Image, StyleSheet } from 'react-native';
 import HeaderBar from '../component/headerBar';
 import CustomFooter from '../component/customFooter';
@@ -7,13 +7,22 @@ import Marquee from '../component/common/marquee';
 import AppsPallette from '../component/appsPallette';
 import lang from '../../assets/util/lang';
 import TodoCard from '../component/todo';
+import { withNavigation } from 'react-navigation';
 
-export default class LandingPage extends Component {
-         
+class LandingPage extends Component {
+    static navigationOptions ={
+        drawerLabel: 'Home',
+        drawerIcon: ({ tintColor }) => (
+            <Image
+            source={require("../../assets/images/Spark.png")}
+            // resizeMode="contain"
+            style={{  width: 24,
+                height: 24, tintColor: tintColor }}
+          />)
+    }
     render() {
         return (
             <Container>
-                
                 {lang.MARQUE_TEXT.length > 0 &&
                     <Marquee>{lang.MARQUE_TEXT}</Marquee>
                 }
@@ -22,47 +31,14 @@ export default class LandingPage extends Component {
                         <CardItem header>
                             <Text style={styles.headingStyle}>Apps</Text>
                         </CardItem>
-                        <AppsPallette navigator={this.props.navigation}/>
+                        <AppsPallette navigation={this.props.navigation} />
                     </Card>
                     <CardItem header>
                         <Text style={styles.headingStyle}>To Do</Text>
                     </CardItem>
-                    <TodoCard/>
-                    {/* <Card style={styles.cardStyle}>
-                        <View style={styles.palleteStyle}>
-                            <Tabs style={{
-                                borderWidth: 0,
-                                borderRadius: 0,
-                                borderColor: '#FFFFFF',
-                                borderBottomWidth: 0,
-                                backgroundColor: '#FFFFFF'
-                            }}>
-                                <Tab heading={
-                                    <TabHeading style={{ backgroundColor: '#FFFFFF' }}>
-                                        <Text>Actions(5)</Text></TabHeading>}>
-                                    <Text style={{ padding: 5 }}>Action1</Text>
-                                    <Text style={{ padding: 5 }}>Action2</Text>
-                                    <Text style={{ padding: 5 }}>Action3</Text>
-                                    <Text style={{ padding: 5 }}>Action4</Text>
-                                    <Text style={{ padding: 5 }}>Action5</Text>
-                                </Tab>
-                                <Tab heading={<TabHeading style={{ backgroundColor: '#FFFFFF', }}><Text>Approvals(2)</Text></TabHeading>}>
-                                    <Text style={{ padding: 5 }}>Approval1</Text>
-                                    <Text style={{ padding: 5 }}>Approval2</Text>
-                                </Tab>
-                            </Tabs>
-                        </View>
-                        <CardItem footer>
-                            <Button transparent style={styles.buttonStyle}>
-                                <Text style={styles.buttonTextStyle}>SEE ALL ACTIONS</Text>
-                            </Button>
-                        </CardItem>
-                    </Card> */}
+                    <TodoCard />
                     <CustomFooter />
                 </Content>
-                {/* <Footer>
-                    
-                </Footer> */}
             </Container>
         );
     }
@@ -91,18 +67,18 @@ const styles = StyleSheet.create({
         marginRight: 3,
         marginTop: 10,
     },
-    buttonStyle:{
-        flex:1, 
-        justifyContent:'center', 
-        alignItems:'center',
-        
+    buttonStyle: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+
     },
-    buttonTextStyle:{
-        color:'#0071CE', 
-        fontSize:14, 
-        fontWeight:'bold', 
-        height:20,
-        
+    buttonTextStyle: {
+        color: '#0071CE',
+        fontSize: 14,
+        fontWeight: 'bold',
+        height: 20,
+
     },
     palleteStyle: {
         flexDirection: 'row',
@@ -114,3 +90,5 @@ const styles = StyleSheet.create({
         padding: 5
     },
 })
+
+export default withNavigation(LandingPage);

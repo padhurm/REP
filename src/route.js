@@ -1,13 +1,12 @@
 import React from "react";
-import { View, Text, SafeAreaView, ScrollView, Dimensions, Image, Animated } from "react-native";
+import { View, Text } from "react-native";
 import Icon from 'react-native-vector-icons/Ionicons';
 import {
     createStackNavigator,
     createSwitchNavigator,
     createDrawerNavigator,
     createBottomTabNavigator,
-    createAppContainer,
-    DrawerItems,
+    createAppContainer
 } from "react-navigation";
 import LandingPage from '../src/Pages/landingPage';
 import Scoping from '../src/Pages/scoping';
@@ -20,20 +19,17 @@ import Feed from '../src/Pages/scanningFeed';
 import Profile from '../src/Pages/scanningProfile';
 import Settings from '../src/Pages/scanningSetting';
 import ScanDetail from '../src/Pages/scanningFeedDetail';
-import { Header } from "native-base";
-import landingPage from "../src/Pages/landingPage";
 
-const width = Dimensions.get('window');
 const feedStack = createStackNavigator(
     {
         Feed: {
             screen: Feed,
             navigationOptions: ({ navigation }) => {
                 return {
-                    headerTitle: 'Receiving',
-                    headerRight: (
+                    headerTitle: 'Feed',
+                    headerLeft: (
                         <Icon name="md-menu"
-                            style={{ paddingRight: 10 }}
+                            style={{ paddingLeft: 10 }}
                             onPress={() => navigation.openDrawer()}
                             size={30} />
                     )
@@ -44,7 +40,7 @@ const feedStack = createStackNavigator(
 
     }, {
         defaultNavigationOptions: {
-            gesturesEnabled: true
+            gesturesEnabled: false
         }
     }
 )
@@ -55,10 +51,10 @@ const profileStack = createStackNavigator(
             screen: Profile,
             navigationOptions: ({ navigation }) => {
                 return {
-                    headerTitle: 'Auditing',
-                    headerRight: (
+                    headerTitle: 'Profile',
+                    headerLeft: (
                         <Icon name="md-menu"
-                            style={{ paddingRight: 10 }}
+                            style={{ paddingLeft: 10 }}
                             onPress={() => navigation.openDrawer()}
                             size={30} />
                     )
@@ -75,10 +71,10 @@ const settingStack = createStackNavigator(
             screen: Settings,
             navigationOptions: ({ navigation }) => {
                 return {
-                    headerTitle: 'Inventory',
-                    headerRight: (
+                    headerTitle: 'Settings',
+                    headerLeft: (
                         <Icon name="md-menu"
-                            style={{ paddingRight: 10 }}
+                            style={{ paddingLeft: 10 }}
                             onPress={() => navigation.openDrawer()}
                             size={30} />
                     )
@@ -91,9 +87,9 @@ const settingStack = createStackNavigator(
 
 const scanningTabNavigator = createBottomTabNavigator(
     {
-        Receiving: feedStack,
-        Auditing: profileStack,
-        Inventory: settingStack
+        feedStack,
+        profileStack,
+        settingStack
     }, {
         navigationOptions: ({ navigation }) => {
             const { routeName } = navigation.state.routes[navigation.state.index]
@@ -112,9 +108,9 @@ const scanningStackNavigator = createStackNavigator(
     {
         defaultNavigationOptions: ({ navigation }) => {
             return {
-                headerRight: (
+                headerLeft: (
                     <Icon name="md-menu"
-                        style={{ paddingRight: 10 }}
+                        style={{ paddingLeft: 10 }}
                         onPress={() => navigation.openDrawer()}
                         size={30} />
                 )
@@ -124,84 +120,35 @@ const scanningStackNavigator = createStackNavigator(
 )
 
 
-const landingStack = createStackNavigator({
-    Home: {
-        screen: LandingPage,
-        navigationOptions: {
-            header: <CustomHeader />,
-            // drawerLabel: landingPage,
-            // drawerIcon: ({ tintColor }) => (
-            //     <Image
-            //     source={require("../assets/images/Spark.png")}
-            //     resizeMode="contain"
-            //     style={{ width: 20, height: 20, tintColor: tintColor }}
-            //   />
-            // )
-        }
-    },
-}, {
-        initialRouteName: 'Home',
-        defaultNavigationOptions: {
-            header: <CustomHeader />
-        }
-    })
-
-const customDrawerComponent = props => {
-
-    return (
-        <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ backgroundColor: '004C91', alignItems: 'center', justifyContent: 'center' }}>
-                <Image
-                    source={require("../assets/images/Spark.png")}
-                    style={{ width: 35, height: 35 }}
-                />
-                {/* <Icon name="ios-person"
-                            style={{ width: 120, height: 120, borderRadius:60, backgroundColor:'grey'}}
-                            size={120} /> */}
-            </View>
-            <ScrollView>
-                <DrawerItems {...props} />
-            </ScrollView>
-        </SafeAreaView>
-    )
-}
-
-
-const rootStack = createDrawerNavigator(
+const appDrawerNavigator = createDrawerNavigator(
     {
-        Home: landingStack,
+        Home: {
+            screen: LandingPage
+        },
         Scoping: scanningStackNavigator,
         Tracking: Tracking,
         Phasing: Phasing,
         Receiving: Receiving,
-        Analytics: Analytics,
-        SignOut: 'signOut'
+        Analytics: Analytics
     },
     {
         initialRouteName: 'Home',
-        drawerPosition: 'right',
-        drawerType: 'slide',
-        hideStatusBar: true,
-        contentComponent: customDrawerComponent,
-        useNativeAnimations: true,
-        contentOptions: {
-            activeTintColor: '#FFC220',
-            activeBackgroundColor: '#004C91',
-            itemsContainerStyle: {
-                marginVertical: 0,
-            },
-            iconContainerStyle: {
-                opacity: 1
-            }
+        // navigationOptions: {
+        //     header: <CustomHeader page="landing" />,
+        // }
+        // headerMode: null,
+        defaultNavigationOptions: {
+            header: <CustomHeader page="landing" />,
+        },
 
-        },     
-    }
-)
+    },
 
-const AppContainer = createAppContainer(rootStack);
+);
+
+const AppContainer = createAppContainer(appDrawerNavigator);
 
 export default class Router extends React.Component {
     render() {
-        return <View style={{ flex: 1 }}><AppContainer /></View>;
+        return <View style={{flex:1}}><AppContainer /></View>;
     }
 }
