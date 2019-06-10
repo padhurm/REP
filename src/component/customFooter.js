@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, StyleSheet, Image, SafeAreaView } from 'react-native';
+import { View, Text, StyleSheet, Image, SafeAreaView, ScrollView } from 'react-native';
 import lang from '../../assets/util/lang';
 
 export default class CustomFooter extends Component {

@@ -21,6 +21,8 @@ import Profile from '../src/Pages/scanningProfile';
 import Settings from '../src/Pages/scanningSetting';
 import ScanDetail from '../src/Pages/scanningFeedDetail';
 import { Header } from "native-base";
+// import landingPage from "../src/Pages/landingPage";
+// import Ionicons from 'react-native-vector-icons';
 import landingPage from "../src/Pages/landingPage";
 
 const width = Dimensions.get('window');
@@ -127,17 +129,16 @@ const scanningStackNavigator = createStackNavigator(
 const landingStack = createStackNavigator({
     Home: {
         screen: LandingPage,
-        navigationOptions: {
-            header: <CustomHeader />,
-            // drawerLabel: landingPage,
-            // drawerIcon: ({ tintColor }) => (
-            //     <Image
-            //     source={require("../assets/images/Spark.png")}
-            //     resizeMode="contain"
-            //     style={{ width: 20, height: 20, tintColor: tintColor }}
-            //   />
-            // )
-        }
+
+        // drawerLabel: landingPage,
+        // drawerIcon: ({ tintColor }) => (
+        //     <Image
+        //     source={require("../assets/images/Spark.png")}
+        //     resizeMode="contain"
+        //     style={{ width: 20, height: 20, tintColor: tintColor }}
+        //   />
+        // )
+        // }
     },
 }, {
         initialRouteName: 'Home',
@@ -150,27 +151,51 @@ const customDrawerComponent = props => {
 
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <View style={{ backgroundColor: '004C91', alignItems: 'center', justifyContent: 'center' }}>
-                <Image
+            <View style={{ backgroundColor: '004C91', alignItems: 'center', justifyContent: 'center',width: 120, height: 120, }}>
+                {/* <Image
                     source={require("../assets/images/Spark.png")}
                     style={{ width: 35, height: 35 }}
-                />
+                /> */}
                 {/* <Icon name="ios-person"
-                            style={{ width: 120, height: 120, borderRadius:60, backgroundColor:'grey'}}
-                            size={120} /> */}
+                        style={{ width: 120, height: 120, borderRadius:60, backgroundColor:'grey'}}
+                        size={120} /> */}
+                        <Text>Header</Text> 
             </View>
             <ScrollView>
-                <DrawerItems {...props} />
+                <DrawerItems
+                    activeBackgroundColor={"black"}
+                    activeTintColor={"white"}
+                    iconContainerStyle={{ width: 50, height:50 }}
+                    {...props}
+                />
             </ScrollView>
-        </SafeAreaView>
+     </SafeAreaView>
     )
 }
 
 
 const rootStack = createDrawerNavigator(
     {
-        Home: landingStack,
-        Scoping: scanningStackNavigator,
+        Home: {
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => (
+                    <Icon name="md-home" style={{ color: tintColor }} />
+                ),
+                drawerLabel: "Home",                
+            },
+            screen: landingPage,
+
+        },
+        Scoping: {
+            navigationOptions: {
+                drawerIcon: ({ tintColor }) => (
+                    <Icon name="md-home" style={{ color: tintColor }} />
+                ),
+                drawerLabel: "Scanning",                
+            },
+            screen: scanningStackNavigator,
+
+        },
         Tracking: Tracking,
         Phasing: Phasing,
         Receiving: Receiving,
@@ -181,7 +206,7 @@ const rootStack = createDrawerNavigator(
         initialRouteName: 'Home',
         drawerPosition: 'right',
         drawerType: 'slide',
-        hideStatusBar: true,
+        // hideStatusBar: true,
         contentComponent: customDrawerComponent,
         useNativeAnimations: true,
         contentOptions: {
@@ -194,7 +219,7 @@ const rootStack = createDrawerNavigator(
                 opacity: 1
             }
 
-        },     
+        },
     }
 )
 

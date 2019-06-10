@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Content, Footer, Text, Card, CardItem, Tab, Tabs, TabHeading, Button, Icon } from 'native-base';
+import { Container, Content, Footer, Text, Card, CardItem, Tab, Tabs, TabHeading, Button, Icon, ScrollView } from 'native-base';
 import { View, Image, StyleSheet } from 'react-native';
 import HeaderBar from '../component/headerBar';
 import CustomFooter from '../component/customFooter';
@@ -10,19 +10,24 @@ import TodoCard from '../component/todo';
 import { withNavigation } from 'react-navigation';
 
 class LandingPage extends Component {
-    static navigationOptions ={
+    static navigationOptions = {
         drawerLabel: 'Home',
         drawerIcon: ({ tintColor }) => (
             <Image
-            source={require("../../assets/images/Spark.png")}
-            // resizeMode="contain"
-            style={{  width: 24,
-                height: 24, tintColor: tintColor }}
-          />)
+                source={require("../../assets/images/Spark.png")}
+                // resizeMode="contain"
+                style={{
+                    width: 24,
+                    height: 24, tintColor: tintColor
+                }}
+            />)
     }
     render() {
         return (
+            // <View>
+
             <Container>
+                <HeaderBar />
                 {lang.MARQUE_TEXT.length > 0 &&
                     <Marquee>{lang.MARQUE_TEXT}</Marquee>
                 }
@@ -40,6 +45,7 @@ class LandingPage extends Component {
                     <CustomFooter />
                 </Content>
             </Container>
+            // </View>
         );
     }
 }
