@@ -5,7 +5,7 @@ import lang from '../../assets/util/lang';
 export default class CustomFooter extends Component {
     render() {
         return (            
-            <View style={styles.footerHeight}>
+            <View style={styles.footerContainer}>
                 <View style={{ flexDirection: 'row' }}>
                     <Image
                         source={require("../../assets/images/Logo_Atl_BG_color.png")}
@@ -36,13 +36,14 @@ const styles = StyleSheet.create({
         // marginTop: 5
 
     },
-    footerHeight: {
+    footerContainer: {
         height: 100,
         backgroundColor: '#FFFFFF',
         borderColor: 'grey',
         justifyContent: 'center',
         alignItems: 'center',
-        width: '100%'
+        width: '100%',
+        // position:'relative'
     },
     imageStyle: {
         width: 25,
