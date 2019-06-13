@@ -36,7 +36,7 @@ class LandingPage extends Component {
                         <CardItem header>
                             <Text style={styles.headingStyle}>Apps</Text>
                         </CardItem>
-                        <AppsPallette navigation={this.props.navigation} />
+                        <AppsPallette/>
                     </Card>
                     <CardItem header>
                         <Text style={styles.headingStyle}>To Do</Text>
