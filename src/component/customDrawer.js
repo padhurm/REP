@@ -9,11 +9,11 @@ class CustomDrawer extends Component {
     _menuHeader = () => {
         return (
             <TouchableOpacity onPress={() => this.props.navigation.navigate('Home')} >
-                <Header style={{ backgroundColor: '#004C91', justifyContent: 'flex-start', alignItems: 'center'  }}>
-                    <Left>
+                <Header style={{ backgroundColor: '#004C91', justifyContent:'center', alignItems:'center' }}>
+                    <Left style={{justifyContent:'flex-start',alignItems: 'center' }}>
                         <Icon name="home" size={30} color="orange" />
                     </Left>
-                    <Title style={{ fontSize: 15, fontWeight: 'bold', color: 'white', justifyContent:'flex-start' }}> 
+                    <Title style={{ fontSize: 15, fontWeight: 'bold', color: 'white',justifyContent:'center',alignItems: 'center' }}> 
                         Realty Execution Platform
                     </Title>
                 </Header>

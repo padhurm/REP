@@ -26,12 +26,13 @@ class HeaderBar extends Component {
                 {/* <Body style={{ flex: 2, justifyContent: 'space-around', alignItems: "flex-start" }}>
 
                 </Body> */}
-                <Right style={{ alignContent: 'center', alignContent: 'center', }}>
+                <Right style={{ flexDirection: 'row',justifyContent: 'flex-end', alignItems: 'center'  }}>
                     <Text style={{
                         fontSize: 14,
-                        color: '#FFF',
-                        padding: 10,
-                        textAlign: 'right'
+                        color: '#FFF', 
+                        margin: 5                       
+                        // padding: 10,
+                        // textAlign: 'right'
                     }}>Hello, Phill</Text>
                     <Icon
                         name='ios-menu'
