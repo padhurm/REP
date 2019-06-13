@@ -34,6 +34,12 @@ const feedStack = createStackNavigator(
                             style={{ paddingRight: 10 }}
                             onPress={() => navigation.openDrawer()}
                             size={30} />
+                    ),
+                    headerLeft: (
+                        <Icon name="md-home"
+                            style={{ paddingLeft: 10 }}
+                            onPress={() => navigation.navigate('Home')}
+                            size={30} />
                     )
                 }
             }
@@ -59,6 +65,12 @@ const profileStack = createStackNavigator(
                             style={{ paddingRight: 10 }}
                             onPress={() => navigation.openDrawer()}
                             size={30} />
+                    ),
+                    headerLeft: (
+                        <Icon name="md-home"
+                            style={{ paddingLeft: 10 }}
+                            onPress={() => navigation.navigate('Home')}
+                            size={30} />
                     )
                 }
             }
@@ -78,6 +90,12 @@ const settingStack = createStackNavigator(
                         <Icon name="md-menu"
                             style={{ paddingRight: 10 }}
                             onPress={() => navigation.openDrawer()}
+                            size={30} />
+                    ),
+                    headerLeft: (
+                        <Icon name="md-home"
+                            style={{ paddingLeft: 10 }}
+                            onPress={() => navigation.navigate('Home')}
                             size={30} />
                     )
                 }
@@ -115,7 +133,8 @@ const scanningStackNavigator = createStackNavigator(
                         style={{ paddingRight: 10 }}
                         onPress={() => navigation.openDrawer()}
                         size={30} />
-                )
+                ),
+
             }
         }
     }
@@ -182,10 +201,50 @@ const rootStack = createDrawerNavigator(
             screen: scanningStackNavigator,
 
         },
-        Tracking: Tracking,
-        Phasing: Phasing,
-        Receiving: Receiving,
-        Analytics: Analytics,
+        Tracking: {
+            screen: Tracking,
+            navigationOptions: {
+                headerTitle:'Tracking',
+                headerLeft: (
+                    <Icon name="md-home"
+                        style={{ paddingLeft: 10 }}
+                        onPress={() => navigation.navigate('Home')}
+                        size={30} />
+                )
+            }
+        },
+        Phasing:  {screen: Phasing,
+        navigationOptions: {
+            headerTitle:'Phasing',
+            headerLeft: (
+                <Icon name="md-home"
+                    style={{ paddingLeft: 10 }}
+                    onPress={() => navigation.navigate('Home')}
+                    size={30} />
+            )
+        }
+    },
+        Receiving: {screen: Receiving,
+            navigationOptions: {
+                headerTitle:'Receiving',
+                headerLeft: (
+                    <Icon name="md-home"
+                        style={{ paddingLeft: 10 }}
+                        onPress={() => navigation.navigate('Home')}
+                        size={30} />
+                )
+            }
+        },
+        Analytics: {screen: Analytics,
+            navigationOptions: {
+                headerLeft: (
+                    <Icon name="md-home"
+                        style={{ paddingLeft: 10 }}
+                        onPress={() => navigation.navigate('Home')}
+                        size={30} />
+                )
+            }
+        },
         SignOut: 'signOut'
     },
     {
